@@ -6,6 +6,7 @@ function App() {
   const [num1, setNum1] = useState('');
   const [num2, setNum2] = useState('');
   const [operation, setOperation] = useState('');
+  const [name,setName]=useState('')
 
   const handleNumChange = (e) => {
     const { name, value } = e.target;
@@ -49,6 +50,16 @@ function App() {
      setOperation('')
 
 
+  }
+
+  const handleChange=(e)=>{
+       const {value,type,name}=e.target
+       setName(value)
+       console.log(name)
+  }
+  const handleClick=()=>{
+    alert(name)
+    setName('')
   }
 
 
@@ -95,7 +106,18 @@ function App() {
       <div>
         <button type='button' onClick={() => handleResult()} >Calculate</button>
       </div>
-
+      <br/><br/>
+      <div>
+        <input
+            type='text'
+            name='name'
+            value={name}
+            onChange={e=>handleChange(e)}
+            
+        />
+        <button type='button' onClick={()=>handleClick()}>Click Me</button>
+      </div>
+       
     </div>
 
 
